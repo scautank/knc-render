@@ -1,0 +1,23 @@
+.list {
+    padding: 8px;
+}
+
+.item {
+    padding: 8px;
+    margin-bottom: 10px;
+    background-color: #ccc;
+}
+
+.item strong {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.item strong a {
+    color: orange;
+    font-size: 14px;
+}
+
+.item-info {
+    font-size: 12px;
+}

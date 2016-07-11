@@ -1,0 +1,17 @@
+{% require "c_list/index.css" %}
+{% require "c_list/index.js" %}
+
+<section class="list">
+    {% for item in $list %}
+    <div class="item">
+        <strong><a href="{{item.url}}">{{item.title}}</a></strong>
+        <div class="item-info">
+            <span>type: {{item.type}}</span> |
+            <span>author: {{item.by}}</span> |
+            <span>time: {{item.time | formatTime}}</span>
+        </div>
+    </div>
+    {% else %}
+    <p>No data...</p>
+    {% endfor %}
+</section>
