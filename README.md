@@ -35,6 +35,7 @@
 const app = new Koa();
 const KncRender = require('knc-render');
 
+// new KncRender(koaContext, renderOptions, [comboOptions]);
 const kncRender = new KncRender(app, {
     ext: 'html', // 模板后缀名
     path: '', // 模板路径
@@ -84,9 +85,16 @@ component可以有3个参数，name,data,dataSource
 
 ```text
 {
-    "css/header.css": "css/header-423dsdol",
-    "js/header.js": "js/header-gk34o1k3" 
+    "css/header.css": "css/header-423dsdol.css",
+    "js/header.js": "js/header-gk34o1k3.js" 
 }
+```
+
+#### 占位符
+
+```text
+如果html文件里面包含<!-- [STYLE PLACEHOLDER] -->，则样式相关会插入这个位置，如果没有默认</head>之前；
+如果html文件里面包含<!-- [SCRIPT PLACEHOLDER] -->，则脚本相关会插入这个位置，如果没有默认</body>之前
 ```
 
 ## 组件规范
