@@ -1,6 +1,6 @@
 {
   "name": "knc-render",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "基于koa和nunjucks的服务端组件化渲染方案",
   "main": "index.js",
   "directories": {

@@ -19,6 +19,7 @@
 
 - 基于koa和nunjucks
 - 组件化开发
+- 需要搭配构建工具shaun使用
 
 ## 安装
 
@@ -40,12 +41,12 @@ const kncRender = new KncRender(app, {
     ext: 'html', // 模板后缀名
     path: '', // 模板路径
     componentPath: '', // 组件路径
-    componentDataSource: '', // 组件数据源路径
-    componentDefaultTmpl: 'index', // 组件默认模板
+    componentDefaultTmpl: 'index', // 组件默认模板名
     staticURL: '/combo?', // 静态资源路径
     staticCombo: true, // 静态资源是否开启combo
     staticMap: {}, // 静态资源表
     filter: {}, // nunjucks模板过滤器
+    dataFilter: function(data, extra) {}, // 数据过滤
     nunjucksConfig: { // nunjucks配置
         autoescape: true,
         watch: true
@@ -69,12 +70,8 @@ kncRender.start();
 
 #### component
 
-component可以有3个参数，name,data,dataSource
-
-```text
-{% component name="c_list",dataSource="list" %}
-这种情况会找componentPath目录下的c_list目录下的[componentDefaultTmpl.ext]文件，并且执行componentDataSource下的list文件暴露出来的方法（必须返回一个promise对象），拿到数据之后再渲染
-```
+component可以有4个参数，name,data,theme,extra
+`name`为组件名，`data`为数据，`theme`为主题名，`extra`为额外参数，会直接做为`dataFilter`的第二个参数
 
 ```text
 {% component name="c_list",data="" %}
