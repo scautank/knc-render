@@ -17,8 +17,18 @@ module.exports = {
     // components目录
     componentPath: join(__dirname, '../views/components'),
 
-    // 组件数据源目录
-    componentDataSource: join(__dirname, './service/components'),
+    // data filter
+    dataFilter: function(data, extra) {
+        extra = extra || {};
+
+        if (extra.name === 'list') {
+            return {
+                $list: data
+            };
+        }
+
+        return data;
+    },
 
     // 资源表路径
     mapPath: join(__dirname, '../public/map.json'),

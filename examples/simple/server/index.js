@@ -36,11 +36,11 @@ const kncRender = new KncRender(app, {
     ext: 'html',
     path: viewPath,
     componentPath: componentPath,
-    componentDataSource: componentDataSource,
     staticURL: '/combo?',
     staticCombo: true,
     staticMap: staticMap,
     filter: filter,
+    dataFilter: config.dataFilter,
     nunjucksConfig: {
         autoescape: true,
         watch: true
